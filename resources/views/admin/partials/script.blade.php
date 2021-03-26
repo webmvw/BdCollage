@@ -32,3 +32,31 @@
 <script src="{{ asset('public/admin/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('public/admin/dist/js/demo.js') }}"></script>
+
+<!-- jquery-validation -->
+  <script src="{{ asset('public/admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+
+  <!-- Select2 -->
+  <script src="{{ asset('public/admin/plugins/select2/js/select2.min.js') }}"></script>
+
+
+  <!-- toastr js -->
+  <script type="text/javascript" src="{{ asset('public/admin/plugins/toastr/toastr.min.js') }}"></script>
+
+  <!-- sweetalert js -->
+  <script type="text/javascript" src="{{ asset('public/admin/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+
+  <!-- DataTables  & Plugins -->
+  <script src="{{ asset('public/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/jszip/jszip.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+  <script src="{{ asset('public/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>

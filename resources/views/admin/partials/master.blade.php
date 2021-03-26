@@ -14,6 +14,8 @@
 
   @include('admin.partials.style')
 
+  @include('admin.partials.script')
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -173,7 +175,148 @@
 </div>
 <!-- ./wrapper -->
 
-@include('admin.partials.script')
+
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
+
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  });
+</script>
+
+
+<!-- sweet alert2  -->
+<script type="text/javascript">
+      $(function(){
+        $(document).on('click', '#deleteButton', function(e){
+          e.preventDefault();
+          var link = $(this).attr('href');
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You went to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href=link;
+              Swal.fire(
+                'Deleted!',
+                'Your file has been Deleted.',
+                'success'
+              )
+            }
+          })
+        });
+      });
+    </script>
+
+
+
+
+<!-- toaster all type message -->
+@if(Session::has('success'))
+  <script type="text/javascript">
+    toastr.success("{!!Session::get('success')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+@endif 
+
+@if(Session::has('error'))
+  <script type="text/javascript">
+    toastr.error("{!!Session::get('error')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+@endif 
+
+@if(Session::has('warning'))
+  <script type="text/javascript">
+    toastr.warning("{!!Session::get('warning')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+@endif
+
+@if(Session::has('info'))
+  <script type="text/javascript">
+    toastr.info("{!!Session::get('info')!!}");
+    toastr.options = {
+      "closeMethod" : 'fadeOut',
+      "closeDuration" : 4000,
+      "closeEasing" : 'swing',
+      "closeButton" : true,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+@endif
+
 
 </body>
 </html>
