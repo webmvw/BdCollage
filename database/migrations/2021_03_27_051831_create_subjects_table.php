@@ -17,6 +17,15 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->integer('subject_code')->unique();
+            $table->integer('department_id');
+            $table->string('semester_id');
+            $table->double('total_mark');
+            $table->double('tc')->nullable();
+            $table->double('tf')->nullable();
+            $table->double('pc')->nullable();
+            $table->double('pf')->nullable();
+            $table->double('cradit');
+            $table->string('pass_mark')->default('40%');
             $table->timestamps();
         });
     }

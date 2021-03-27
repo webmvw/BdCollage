@@ -59,6 +59,68 @@
                           </div>
                         </div>
                       </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="department">Department</label>
+                              <select id="department" name="department" class="form-control select2">
+                                <option value="">Select Department</option>
+                                @foreach($departments as $key=>$value)
+                                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="semester">Semester</label>
+                              <select id="semester" name="semester" class="form-control select2">
+                                <option value="">Select Semester</option>
+                                @foreach($semesters as $key=>$value)
+                                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label for="total_mark">Total mark</label>
+                            <input type="number" name="total_mark" class="form-control" id="total_mark" placeholder="Enter Total Mark">
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label for="tc">TC (optional)</label>
+                            <input type="number" name="tc" class="form-control" id="tc" placeholder="Enter TC Mark">
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label for="tf">TF (optional)</label>
+                            <input type="number" name="tf" class="form-control" id="tf" placeholder="Enter TF Mark">
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label for="pc">PC (optional)</label>
+                            <input type="number" name="pc" class="form-control" id="pc" placeholder="Enter PC Mark">
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label for="pf">PF (optional)</label>
+                            <input type="number" name="pf" class="form-control" id="pf" placeholder="Enter PF Mark">
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group">
+                            <label for="cradit">Cradit</label>
+                            <input type="number" name="cradit" class="form-control" id="cradit" placeholder="Enter cradit">
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
@@ -89,6 +151,20 @@ $(function () {
         required: true,
         number: true,
       },
+      department: {
+        required: true,
+      },
+      semester: {
+        required: true,
+      },
+      total_mark: {
+        required: true,
+        number: true,
+      },
+      cradit: {
+        required: true,
+        number: true,
+      },
     },
     messages: {
       name: {
@@ -98,6 +174,20 @@ $(function () {
       subject_code: {
         required: "Please enter subject code",
         number: "Invalid insert! only number allowed.",
+      },
+      department:{
+        required: "Please select department.",
+      },
+      semester: {
+        required: "Please select semester.",
+      },
+      total_mark: {
+        required: "Please enter total mark",
+        number: "Invalid input! only number allowed.",
+      },
+      cradit: {
+        required: "Please enter subject credit",
+        number: "Invalid input! only number allowed.",
       },
     },
     errorElement: 'span',
