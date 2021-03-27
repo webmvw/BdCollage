@@ -69,6 +69,20 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ route('exam.view') }}" class="nav-link {{ ($route == 'exam.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Exam</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('subject.view') }}" class="nav-link {{ ($route == 'subject.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Subject</p>
+                </a>
+              </li>
+
             </ul>
           </li>
 

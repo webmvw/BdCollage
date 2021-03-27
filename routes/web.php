@@ -60,6 +60,22 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/feeAmount/details/{fee_category_id}', [App\Http\Controllers\Admin\FeeAmountController::class, 'details'])->name('feeAmount.details');
 		Route::get('/feeAmount/delete/{id}', [App\Http\Controllers\Admin\FeeAmountController::class, 'delete'])->name('feeAmount.delete');
 
+		// for exam
+		Route::get('/exam/view', [App\Http\Controllers\Admin\ExamController::class, 'view'])->name('exam.view');
+		Route::get('/exam/add', [App\Http\Controllers\Admin\ExamController::class, 'add'])->name('exam.add');
+		Route::post('/exam/store', [App\Http\Controllers\Admin\ExamController::class, 'store'])->name('exam.store');
+		Route::get('/exam/edit/{id}', [App\Http\Controllers\Admin\ExamController::class, 'edit'])->name('exam.edit');
+		Route::post('/exam/update/{id}', [App\Http\Controllers\Admin\ExamController::class, 'update'])->name('exam.update');
+		Route::get('/exam/delete/{id}', [App\Http\Controllers\Admin\ExamController::class, 'delete'])->name('exam.delete');
+
+		// for subject
+		Route::get('/subject/view', [App\Http\Controllers\Admin\SubjectController::class, 'view'])->name('subject.view');
+		Route::get('/subject/add', [App\Http\Controllers\Admin\SubjectController::class, 'add'])->name('subject.add');
+		Route::post('/subject/store', [App\Http\Controllers\Admin\SubjectController::class, 'store'])->name('subject.store');
+		Route::get('/subject/edit/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'edit'])->name('subject.edit');
+		Route::post('/subject/update/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'update'])->name('subject.update');
+		Route::get('/subject/delete/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'delete'])->name('subject.delete');
+
 	});
 
 });

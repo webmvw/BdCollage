@@ -1,7 +1,7 @@
 @extends('admin.partials.master')
 
 @section('title')
-  <title>Fee Category | BdCollage</title>
+  <title>Subject | BdCollage</title>
 @endsection
 
 @section('content')
@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Fee Category</h1>
+            <h1 class="m-0 text-dark">Manage Subject</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item active">Fee Category</li>
+              <li class="breadcrumb-item active">Subject</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,8 +33,8 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Fee Category List</h3>
-                <a href="{{ route('feeCategory.add') }}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Fee Category</a>
+                <h3 class="card-title">Subject List</h3>
+                <a href="{{ route('subject.add') }}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Subject</a>
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
@@ -42,18 +42,20 @@
                     <thead>
                     <tr>
                       <th>SL</th>
-                      <th>Name</th>
+                      <th>Subject Name</th>
+                      <th>Subject Code</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                      @foreach($allFeeCategory as $key=>$value)
+                      @foreach($allSubject as $key=>$value)
                         <tr>
                           <td>{{ $key+1 }}</td>
                           <td>{{ $value->name }}</td>
+                          <td>{{ $value->subject_code }}</td>
                           <td>
-                            <a href="{{ route('feeCategory.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('feeCategory.delete', $value->id) }}" onclick="return confirm('Are you sure to delete!');" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('subject.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('subject.delete', $value->id) }}" onclick="return confirm('Are you sure to delete!');" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           </td>
                         </tr>
                     @endforeach
@@ -62,7 +64,8 @@
                     <tfoot>
                     <tr>
                       <th>SL</th>
-                      <th>Name</th>
+                      <th>Subject Name</th>
+                      <th>Subject Code</th>
                       <th>Action</th>
                     </tr>
                     </tfoot>

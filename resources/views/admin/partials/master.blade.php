@@ -205,7 +205,7 @@
 </script>
 
 
-<!-- sweet alert2  -->
+ <!-- sweet alert2  -->
 <script type="text/javascript">
       $(function(){
         $(document).on('click', '#deleteButton', function(e){
@@ -224,14 +224,14 @@
               window.location.href=link;
               Swal.fire(
                 'Deleted!',
-                'Your file has been Deleted.',
+                'Your file has been deleted.',
                 'success'
               )
             }
           })
         });
       });
-    </script>
+    </script>   
 
 
 
