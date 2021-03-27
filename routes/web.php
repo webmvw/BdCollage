@@ -68,7 +68,7 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/exam/update/{id}', [App\Http\Controllers\Admin\ExamController::class, 'update'])->name('exam.update');
 		Route::get('/exam/delete/{id}', [App\Http\Controllers\Admin\ExamController::class, 'delete'])->name('exam.delete');
 
-		// for exam
+		// for semester
 		Route::get('/semester/view', [App\Http\Controllers\Admin\SemesterController::class, 'view'])->name('semester.view');
 		Route::get('/semester/add', [App\Http\Controllers\Admin\SemesterController::class, 'add'])->name('semester.add');
 		Route::post('/semester/store', [App\Http\Controllers\Admin\SemesterController::class, 'store'])->name('semester.store');
@@ -84,6 +84,13 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/subject/update/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'update'])->name('subject.update');
 		Route::get('/subject/delete/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'delete'])->name('subject.delete');
 
+		// for designation
+		Route::get('/designation/view', [App\Http\Controllers\Admin\DesignationController::class, 'view'])->name('designation.view');
+		Route::get('/designation/add', [App\Http\Controllers\Admin\DesignationController::class, 'add'])->name('designation.add');
+		Route::post('/designation/store', [App\Http\Controllers\Admin\DesignationController::class, 'store'])->name('designation.store');
+		Route::get('/designation/edit/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'edit'])->name('designation.edit');
+		Route::post('/designation/update/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'update'])->name('designation.update');
+		Route::get('/designation/delete/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'delete'])->name('designation.delete');
 
 	});
 

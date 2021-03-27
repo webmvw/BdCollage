@@ -90,6 +90,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ route('designation.view') }}" class="nav-link {{ ($route == 'designation.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Designation</p>
+                </a>
+              </li>
+
             </ul>
           </li>
         </ul>
