@@ -22,10 +22,12 @@ class DepartmentController extends Controller
 
         $request->validate([
             'name' => 'required|unique:departments',
+            'department_code' => 'required|unique:departments',
         ]);
 
     	$department = new Department;
     	$department->name = $request->name;
+        $department->department_code = $request->department_code;
     	$department->save();
     	return redirect()->route('department.view')->with("success", "Department Added Successfully!!");
     }
@@ -42,10 +44,15 @@ class DepartmentController extends Controller
             'name'   =>  [
                 'required',
                  Rule::unique('departments')->ignore($id),
+            ],
+            'department_code'   =>  [
+                'required',
+                 Rule::unique('departments')->ignore($id),
             ]
         ]);
     	$department = Department::find($id);
     	$department->name = $request->name;
+        $department->department_code = $request->department_code;
     	$department->save();
     	return redirect()->route('department.view')->with("info", "Department updated Successfully!!");
     }

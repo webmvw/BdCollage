@@ -1,7 +1,7 @@
 @extends('admin.partials.master')
 
 @section('title')
-  <title>Department | BdCollage</title>
+  <title>Menage Student | BdCollage</title>
 @endsection
 
 @section('content')
@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Department</h1>
+            <h1 class="m-0 text-dark">Manage Student</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item active">Department</li>
+              <li class="breadcrumb-item active">Student</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,8 +33,8 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Department List</h3>
-                <a href="{{ route('department.add') }}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Department</a>
+                <h3 class="card-title">Student List</h3>
+                <a href="{{ route('student.registration.add') }}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Student</a>
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
@@ -43,19 +43,21 @@
                     <tr>
                       <th>SL</th>
                       <th>Name</th>
-                      <th>Department Code</th>
+                      <th>Department</th>
+                      <th>Session</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                      @foreach($allDepartments as $key=>$value)
+                      @foreach($allStudent as $key=>$value)
                         <tr>
                           <td>{{ $key+1 }}</td>
-                          <td>{{ $value->name }}</td>
-                          <td>{{ $value->department_code }}</td>
+                          <td>{{ $value->student->name }}</td>
+                          <td>{{ $value->department->name }}</td>
+                          <td>{{ $value->session->name }}</td>
                           <td>
-                            <a href="{{ route('department.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('department.delete', $value->id) }}" onclick="return confirm('Are you sure to delete!');" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('session.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('session.delete', $value->id) }}" onclick="return confirm('Are you sure to delete!');" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           </td>
                         </tr>
                     @endforeach
@@ -65,6 +67,8 @@
                     <tr>
                       <th>SL</th>
                       <th>Name</th>
+                      <th>Department</th>
+                      <th>Session</th>
                       <th>Action</th>
                     </tr>
                     </tfoot>

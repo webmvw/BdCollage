@@ -2,7 +2,7 @@
 @extends('admin.partials.master')
 
 @section('title')
-  <title>Add Department | BdCollage</title>
+  <title>Edit Session | BdCollage</title>
 @endsection
 
 @section('content')
@@ -13,13 +13,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Department</h1>
+            <h1 class="m-0 text-dark">Manage Session</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('department.view') }}">Department</a></li>
-              <li class="breadcrumb-item active">Add Department</li>
+              <li class="breadcrumb-item"><a href="{{ route('session.view') }}">Session</a></li>
+              <li class="breadcrumb-item active">Edit Session</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,12 +36,12 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Add Department</h3>
-                <a href="{{ route('department.view') }}" class="btn btn-success btn-sm"><i class="fa fa-list"></i> Department List</a>
+                <h3 class="card-title">Edit Session - {{ $getSession->name }}</h3>
+                <a href="{{ route('session.view') }}" class="btn btn-success btn-sm"><i class="fa fa-list"></i> Session List</a>
               </div>
 
               <!-- /.card-header -->
-                 <form method="post" action="{{ route('department.store') }}" id="quickForm" novalidate="novalidate"> 
+                 <form method="post" action="{{ route('session.update', $getSession->id) }}" id="quickForm" novalidate="novalidate"> 
                   @csrf
                     <div class="card-body">
                       @include('admin.partials.message')
@@ -49,20 +49,16 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
+                            <input type="text" value="{{ $getSession->name }}" name="name" class="form-control" id="name" placeholder="Example: 2017-2018">
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <div class="form-group">
-                            <label for="department_code">Department Code</label>
-                            <input type="number" name="department_code" id="department_code" placeholder="Department Code" class="form-control">
-                          </div>
                         </div>
                       </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                   </form> 
 
@@ -85,20 +81,12 @@ $(function () {
         required: true,
         maxlength:60,
       },
-      department_code:{
-        required: true,
-        number:true,
-      },
     },
     messages: {
       name: {
-        required: "Please enter name",
-        maxlength: "Your name must be at least 60 characters long"
+        required: "Please enter session name",
+        maxlength: "Your session name must be at least 60 characters long"
       },
-      department_code:{
-        required: "Please enter department code",
-        number: "Invalid department code",
-      }
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

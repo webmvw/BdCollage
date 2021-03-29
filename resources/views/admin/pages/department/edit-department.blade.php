@@ -53,6 +53,10 @@
                           </div>
                         </div>
                         <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="department_code">Department Code</label>
+                            <input type="number" value="{{ $getDepartment->department_code }}" name="department_code" id="department_code" placeholder="Department Code" class="form-control">
+                          </div>
                         </div>
                       </div>
                     </div>

@@ -33,7 +33,7 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 	// for admin dashbaord 
 	Route::get('admin/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
 
-	// setups
+	// setups management
 	Route::group(['prefix' => 'setups'], function(){
 		// department
 		Route::get('/department/view', [App\Http\Controllers\Admin\DepartmentController::class, 'view'])->name('department.view');
@@ -76,6 +76,14 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/semester/update/{id}', [App\Http\Controllers\Admin\SemesterController::class, 'update'])->name('semester.update');
 		Route::get('/semester/delete/{id}', [App\Http\Controllers\Admin\SemesterController::class, 'delete'])->name('semester.delete');
 
+		// for session
+		Route::get('/session/view', [App\Http\Controllers\Admin\SessionController::class, 'view'])->name('session.view');
+		Route::get('/session/add', [App\Http\Controllers\Admin\SessionController::class, 'add'])->name('session.add');
+		Route::post('/session/store', [App\Http\Controllers\Admin\SessionController::class, 'store'])->name('session.store');
+		Route::get('/session/edit/{id}', [App\Http\Controllers\Admin\SessionController::class, 'edit'])->name('session.edit');
+		Route::post('/session/update/{id}', [App\Http\Controllers\Admin\SessionController::class, 'update'])->name('session.update');
+		Route::get('/session/delete/{id}', [App\Http\Controllers\Admin\SessionController::class, 'delete'])->name('session.delete');
+
 		// for subject
 		Route::get('/subject/view', [App\Http\Controllers\Admin\SubjectController::class, 'view'])->name('subject.view');
 		Route::get('/subject/add', [App\Http\Controllers\Admin\SubjectController::class, 'add'])->name('subject.add');
@@ -91,8 +99,19 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/designation/edit/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'edit'])->name('designation.edit');
 		Route::post('/designation/update/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'update'])->name('designation.update');
 		Route::get('/designation/delete/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'delete'])->name('designation.delete');
-
 	});
+
+
+	// student management
+	Route::group(['prefix' => 'students'], function(){
+		// for student registration
+		Route::get('/registration/view', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'view'])->name('student.registration.view');
+		Route::get('/registration/add', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'add'])->name('student.registration.add');
+		Route::post('/registration/store', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'store'])->name('student.registration.store');
+		Route::get('/registration/edit/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'edit'])->name('student.registration.edit');
+		Route::post('/registration/update/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'update'])->name('student.registration.update');
+		Route::get('/registration/delete/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'delete'])->name('student.registration.delete');
+	});	
 
 });
 
