@@ -35,7 +35,9 @@ class RegisterController extends Controller
         if(Auth()->user()->role_id == 1){
             return route('admin.dashboard');
         }elseif(Auth()->user()->role_id == 2){
-            return route('user.dashboard');
+            return route('teacher.dashboard');
+        }elseif(Auth()->user()->role_id == 3){
+            return route('student.dashboard');
         }
     }
     
@@ -77,7 +79,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_id' => '2',
+            'role_id' => '3',
         ]);
     }
 }

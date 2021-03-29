@@ -106,12 +106,30 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 
 /*
 |--------------------------------------------------------------------------
-|  Routes for user
+|  Routes for teacher
 |--------------------------------------------------------------------------
 |
 | this routes access for only user
 |
 */
-Route::group(['middleware' => ['user', 'auth']], function(){
-	Route::get('user/dashboard', [App\Http\Controllers\User\UserController::class, 'index'])->name('user.dashboard');
+Route::group(['middleware' => ['teacher', 'auth']], function(){
+	Route::get('teacher/dashboard', [App\Http\Controllers\Teacher\TeacherController::class, 'index'])->name('teacher.dashboard');
+});
+
+
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+|  Routes for student
+|--------------------------------------------------------------------------
+|
+| this routes access for only user
+|
+*/
+Route::group(['middleware' => ['student', 'auth']], function(){
+	Route::get('student/dashboard', [App\Http\Controllers\Student\StudentController::class, 'index'])->name('student.dashboard');
 });
