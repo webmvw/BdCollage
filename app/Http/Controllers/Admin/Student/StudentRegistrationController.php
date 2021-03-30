@@ -11,11 +11,12 @@ use App\Models\DiscountStudent;
 use App\Models\Department;
 use App\Models\Session;
 use DB;
+use File;
 
 class StudentRegistrationController extends Controller
 {
     public function view(){
-    	$allStudent = AssignStudent::all();
+    	$allStudent = AssignStudent::orderBy('id', 'desc')->get();
     	return view('admin.pages.student.student-reg.view-student', compact('allStudent'));
     }
 
@@ -103,5 +104,57 @@ class StudentRegistrationController extends Controller
     	});
         return redirect()->route('student.registration.view')->with('success', 'Student Registration Successfully!!');
     }
+
+
+    public function edit($id){
+        $data['assignStudent'] = AssignStudent::find($id);
+        $data['departments'] = Department::all();
+        $data['sessions'] = Session::all();
+        return view('admin.pages.student.student-reg.edit-student', $data);
+    }
+
+    public function update(Request $request, $id){
+        DB::transaction(function() use($request, $id){
+            // start update student data in user model
+            $registerStudent = AssignStudent::find($id);
+            $user_id = $registerStudent->student_id;
+            $user = User::find($user_id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->mobile = $request->phone;
+            $user->address = $request->address;
+            $user->gender = $request->gender;
+            $user->fname = $request->fname;
+            $user->mname = $request->mname;
+            $user->religion = $request->religion;
+            $user->dob = date('Y-m-d', strtotime($request->dob));
+            if($request->hasfile('image')){
+                if(File::exists('public/img/students/'.$user->image)){
+                    File::delete('public/img/students/'.$user->image);
+                }
+                $file = $request->file('image');
+                $filename = time().$file->getClientOriginalName();
+                $file->move('public/img/students/',$filename);
+                $user->image = $filename;
+            }
+            $user->save();
+            // end update student data in user model
+
+            // start update student data in AssignStudent model
+            $assignStudent = AssignStudent::find($id);
+            $assignStudent->department_id = $request->department;
+            $assignStudent->session_id = $request->session;
+            $assignStudent->save();
+            // end update student data in AssignStudent model
+
+            // start update student data in Discount model
+            $discount = DiscountStudent::where('assign_student_id', $id)->first();
+            $discount->discount = $request->discount;
+            $discount->save();
+            //end update student data in discount model
+        });
+        return redirect()->route('student.registration.view')->with('success', 'Student Update Successfully!!');
+    }
+
 
 }

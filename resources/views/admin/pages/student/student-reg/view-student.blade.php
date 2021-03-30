@@ -42,22 +42,35 @@
                     <thead>
                     <tr>
                       <th>SL</th>
+                      <th>Image</th>
                       <th>Name</th>
+                      <th>ID No</th>
                       <th>Department</th>
                       <th>Session</th>
-                      <th>Action</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th width="10%">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                       @foreach($allStudent as $key=>$value)
                         <tr>
                           <td>{{ $key+1 }}</td>
+                          <td>
+                            @if($value->student->image == null)
+                            <img src="{{ asset('public/img/user.png') }}" style="width: 50px;height: 50px;" align="user image">
+                            @else
+                            <img src="{{ asset('public/img/students/'.$value->student->image) }}" style="width: 60px;height: 60px;" align="user image">
+                            @endif
+                          </td>
                           <td>{{ $value->student->name }}</td>
+                          <td>{{ $value->student->id_no }}</td>
                           <td>{{ $value->department->name }}</td>
                           <td>{{ $value->session->name }}</td>
+                          <td>{{ $value->student->mobile }}</td>
+                          <td>{{ $value->student->address }}</td>
                           <td>
-                            <a href="{{ route('session.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('session.delete', $value->id) }}" onclick="return confirm('Are you sure to delete!');" title="Delete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('student.registration.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                           </td>
                         </tr>
                     @endforeach
@@ -66,10 +79,14 @@
                     <tfoot>
                     <tr>
                       <th>SL</th>
+                      <th>Image</th>
                       <th>Name</th>
+                      <th>ID No</th>
                       <th>Department</th>
                       <th>Session</th>
-                      <th>Action</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th width="10%">Action</th>
                     </tr>
                     </tfoot>
                   </table>

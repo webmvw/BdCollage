@@ -20,4 +20,8 @@ class AssignStudent extends Model
     public function session(){
     	return $this->belongsTo(Session::class, 'session_id', 'id');
     }
+
+    public function discount(){
+        return $this->belongsTo(DiscountStudent::class, 'id', 'assign_student_id');
+    }
 }
