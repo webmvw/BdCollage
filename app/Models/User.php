@@ -47,5 +47,12 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
 
+    public function teacher(){
+        return $this->belongsTo(EmployeeSalaryLog::class, 'id', 'employee_id');
+    }
+
+    public function designation(){
+        return $this->belongsTo(Designation::class, 'designation_id', 'id');
+    }
 
 }

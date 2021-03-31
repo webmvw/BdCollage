@@ -16,8 +16,8 @@ use File;
 class StudentRegistrationController extends Controller
 {
     public function view(){
-    	$allStudent = AssignStudent::orderBy('id', 'desc')->get();
-    	return view('admin.pages.student.student-reg.view-student', compact('allStudent'));
+    	$data['allStudent'] = AssignStudent::orderBy('id', 'desc')->get();
+    	return view('admin.pages.student.student-reg.view-student', $data);
     }
 
     public function add(){

@@ -111,6 +111,25 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/registration/edit/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'edit'])->name('student.registration.edit');
 		Route::post('/registration/update/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'update'])->name('student.registration.update');
 		Route::get('/registration/delete/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'delete'])->name('student.registration.delete');
+	});
+
+	// employee management
+	Route::group(['prefix' => 'employee'], function(){
+		// for employee registration
+		Route::get('/registration/view', [App\Http\Controllers\Admin\Employee\EmployeeRegistrationController::class, 'view'])->name('employee.registration.view');
+		Route::get('/registration/add', [App\Http\Controllers\Admin\Employee\EmployeeRegistrationController::class, 'add'])->name('employee.registration.add');
+		Route::post('/registration/store', [App\Http\Controllers\Admin\Employee\EmployeeRegistrationController::class, 'store'])->name('employee.registration.store');
+		Route::get('/registration/edit/{id}', [App\Http\Controllers\Admin\Employee\EmployeeRegistrationController::class, 'edit'])->name('employee.registration.edit');
+		Route::post('/registration/update/{id}', [App\Http\Controllers\Admin\Employee\EmployeeRegistrationController::class, 'update'])->name('employee.registration.update');
+		Route::get('/registration/delete/{id}', [App\Http\Controllers\Admin\Employee\EmployeeRegistrationController::class, 'delete'])->name('employee.registration.delete');
+
+		// for employee salary
+		Route::get('/salary/view', [App\Http\Controllers\Admin\Teacher\TeacherRegistrationController::class, 'view'])->name('employee.salary.view');
+		Route::get('/salary/add', [App\Http\Controllers\Admin\Teacher\TeacherRegistrationController::class, 'add'])->name('employee.salary.add');
+		Route::post('/salary/store', [App\Http\Controllers\Admin\Teacher\TeacherRegistrationController::class, 'store'])->name('employee.registration.store');
+		Route::get('/salary/edit/{id}', [App\Http\Controllers\Admin\Teacher\TeacherRegistrationController::class, 'edit'])->name('employee.salary.edit');
+		Route::post('/salary/update/{id}', [App\Http\Controllers\Admin\Teacher\TeacherRegistrationController::class, 'update'])->name('employee.salary.update');
+		Route::get('/salary/delete/{id}', [App\Http\Controllers\Admin\Teacher\TeacherRegistrationController::class, 'delete'])->name('employee.salary.delete');
 	});	
 
 });
