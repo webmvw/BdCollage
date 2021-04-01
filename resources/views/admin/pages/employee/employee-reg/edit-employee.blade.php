@@ -114,8 +114,13 @@
                             <label for="department">Department <span style="color:red">*</span></label>
                             <select class="form-control select2" name="department" id="department">
                               <option value="">Select Department</option>
+                              @php
+                              $id_no = explode('-', $getTeacher->id_no);
+                              $department_code = $id_no[0];
+                              $getDepartment = App\Models\Department::where('department_code', $department_code)->first();
+                              @endphp
                               @foreach($departments as $department)
-                              <option value="{{ $department->id }}" {{ ($getTeacher->teacher->department_id == $department->id)? 'selected': '' }}>{{ $department->name }}</option>
+                              <option value="{{ $department->id }}" {{ ($getDepartment->id == $department->id)? 'selected': '' }}>{{ $department->name }}</option>
                               @endforeach
                             </select>
                           </div>

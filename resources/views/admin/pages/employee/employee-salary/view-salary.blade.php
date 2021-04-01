@@ -1,7 +1,7 @@
 @extends('admin.partials.master')
 
 @section('title')
-  <title>Menage Employee | BdCollage</title>
+  <title>Menage Employee Salary | BdCollage</title>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Employee</h1>
+            <h1 class="m-0 text-dark">Manage Employee Salary</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -34,7 +34,6 @@
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="card-title">Employee List</h3>
-                <a href="{{ route('employee.registration.add') }}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Employee</a>
               </div>
               
               <!-- /.card-header -->
@@ -48,12 +47,8 @@
                       <th>Name</th>
                       <th>Designation</th>
                       <th>ID No</th>
-                      <th>Phone</th>
-                      <th>Address</th>
                       <th>Joining Date</th>
-                      @if(Auth::user()->role_id == 1)
-                      <th>code</th>
-                      @endif
+                      <th>Salary</th>
                       <th width="10%">Action</th>
                     </tr>
                     </thead>
@@ -71,14 +66,11 @@
                           <td>{{ $value->name }}</td>
                           <td>{{ $value->designation->name }}</td>
                           <td>{{ $value->id_no }}</td>
-                          <td>{{ $value->mobile }}</td>
-                          <td>{{ $value->address }}</td>
                           <td>{{ $value->join_date }}</td>
-                          @if(Auth::user()->role_id == 1)
-                          <td>{{ $value->code }}</td>
-                          @endif
+                          <td>{{ $value->salary }}/=</td>
                           <td>
-                            <a href="{{ route('employee.registration.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('employee.salary.edit', $value->id) }}" title="Encrement Salary" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('employee.salary.details', $value->id) }}" title="Encrement Details" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                           </td>
                         </tr>
                     @endforeach
@@ -91,12 +83,8 @@
                       <th>Name</th>
                       <th>Designation</th>
                       <th>ID No</th>
-                      <th>Phone</th>
-                      <th>Address</th>
                       <th>Joining Date</th>
-                      @if(Auth::user()->role_id == 1)
-                      <th>code</th>
-                      @endif
+                      <th>Salary</th>
                       <th width="10%">Action</th>
                     </tr>
                     </tfoot>

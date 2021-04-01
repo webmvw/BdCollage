@@ -91,7 +91,6 @@ class EmployeeRegistrationController extends Controller
             // start insert employee data in EmployeeSalaryLog model
             $employeeSalaryLog = new EmployeeSalaryLog;
             $employeeSalaryLog->employee_id = $user->id;
-            $employeeSalaryLog->department_id = $request->department;
             $employeeSalaryLog->previous_salary = $request->salary;
             $employeeSalaryLog->present_salary = $request->salary;
             $employeeSalaryLog->increment_salary = '0';

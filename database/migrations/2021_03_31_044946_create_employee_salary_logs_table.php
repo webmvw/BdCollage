@@ -16,7 +16,6 @@ class CreateEmployeeSalaryLogsTable extends Migration
         Schema::create('employee_salary_logs', function (Blueprint $table) {
             $table->id();
             $table->integer('employee_id')->commant('user_id=employee_id');
-            $table->integer('department_id');
             $table->double('previous_salary')->nullable();
             $table->double('present_salary')->nullable();
             $table->double('increment_salary')->nullable();
