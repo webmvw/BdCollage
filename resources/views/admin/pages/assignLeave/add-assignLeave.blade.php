@@ -2,7 +2,7 @@
 @extends('admin.partials.master')
 
 @section('title')
-  <title>Increment Salary | BdCollage</title>
+  <title>Add Assign Leave | BdCollage</title>
 @endsection
 
 @section('content')
@@ -13,13 +13,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Manage Salary</h1>
+            <h1 class="m-0 text-dark">Manage Assign Leave</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('employee.salary.view') }}">Employee Salary</a></li>
-              <li class="breadcrumb-item active">Increment Salary</li>
+              <li class="breadcrumb-item"><a href="{{ route('employee.assign.leave.view') }}">Assign Leave List</a></li>
+              <li class="breadcrumb-item active">Add Assign Leave</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,46 +36,37 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Increment Salary</h3>
-                <a href="{{ route('employee.salary.view') }}" class="btn btn-success btn-sm"><i class="fa fa-list"></i> Employee List</a>
+                <h3 class="card-title">Add Assign Leave</h3>
+                <a href="{{ route('employee.assign.leave.view') }}" class="btn btn-success btn-sm"><i class="fa fa-list"></i> Assign Leave List</a>
               </div>
 
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-4">
-                    <p><strong>Employer Name:</strong> {{ $employee->name }}</p>
-                  </div>
-                  <div class="col-md-4">
-                    <p><strong>Employer ID:</strong> {{ $employee->id_no }}</p>
-                  </div>
-                  <div class="col-md-4">
-                    <p><strong>Designation:</strong> {{ $employee->designation->name }}</p>
-                  </div>
-                  <div class="col-md-4">
-                    <p><strong>Joining Date:</strong> {{ date('F j, Y', strtotime($employee->join_date)) }}</p>
-                  </div>
-                  <div class="col-md-4">
-                    <p><strong>Present Salary:</strong> {{ $employee->salary }}/=</p>
-                  </div>
-                </div>
-                <hr>
-              </div>
               <!-- /.card-header -->
-                 <form method="post" action="{{ route('employee.salary.update', $employee->id) }}" id="quickForm" novalidate="novalidate"> 
+                 <form method="post" action="{{ route('employee.assign.leave.store') }}" id="quickForm" novalidate="novalidate"> 
                   @csrf
                     <div class="card-body">
                       @include('admin.partials.message')
                       <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
-                            <label for="encrement_amount">Increment Amount</label>
-                            <input type="number" name="encrement_amount" id="encrement_amount" class="form-control" placeholder="Enter Encrement Amout">
+                            <label for="employee_id">Employee</label>
+                            <select name="employee_id" id="employee_id" class="form-control select2">
+                              <option value="">Select Employee</option>
+                              @foreach($employees as $employee)
+                              <option value="{{ $employee->id }}">{{ $employee->name }}({{ $employee->id_no }})</option>
+                              @endforeach
+                            </select>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
-                            <label for="effected_date">Effected Date</label>
-                            <input type="date" name="effected_date" id="effected_date" class="form-control">
+                            <label for="cl">CL Leave</label>
+                            <input type="number" name="cl" id="cl" placeholder="Enter CL Max Leave" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="ml">ML Leave</label>
+                            <input type="number" name="ml" id="ml" placeholder="Enter ML Max Leave" class="form-control">
                           </div>
                         </div>
                       </div>
@@ -101,21 +92,29 @@
 $(function () {
   $('#quickForm').validate({
     rules: {
-      encrement_amount: {
+      employee_id: {
+        required: true,
+      },
+      cl:{
+        required: true,
+        number:true,
+      },
+      ml: {
         required: true,
         number: true,
       },
-      effected_date: {
-        required: true,
-      }
     },
     messages: {
-      encrement_amount: {
-        required: "Please enter semester name",
-        number: "Invalid input. Only number allowed.",
+      employee_id: {
+        required: "Please select employee",
       },
-      effected_date: {
-        required: "Please enter effected date",
+      cl:{
+        required: "Please enter CL Leave",
+        number: "Invalid input",
+      },
+      ml:{
+        required: "Please enter ML Leave",
+        number: "Invalid input",
       },
     },
     errorElement: 'span',
@@ -132,5 +131,6 @@ $(function () {
   });
 });
 </script>
+
 
 @endsection

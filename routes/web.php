@@ -99,6 +99,13 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/designation/edit/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'edit'])->name('designation.edit');
 		Route::post('/designation/update/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'update'])->name('designation.update');
 		Route::get('/designation/delete/{id}', [App\Http\Controllers\Admin\DesignationController::class, 'delete'])->name('designation.delete');
+
+		// for employee assign leave
+		Route::get('/employee/assignLeave/view', [App\Http\Controllers\Admin\EmployeeAssignLeaveController::class, 'view'])->name('employee.assign.leave.view');
+		Route::get('/employee/assignLeave/add', [App\Http\Controllers\Admin\EmployeeAssignLeaveController::class, 'add'])->name('employee.assign.leave.add');
+		Route::post('/employee/assignLeave/store', [App\Http\Controllers\Admin\EmployeeAssignLeaveController::class, 'store'])->name('employee.assign.leave.store');
+		Route::get('/employee/assignLeave/delete/{id}', [App\Http\Controllers\Admin\EmployeeAssignLeaveController::class, 'delete'])->name('employee.assign.leave.delete');
+
 	});
 
 

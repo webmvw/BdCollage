@@ -103,6 +103,12 @@
                   <p>Designation</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('employee.assign.leave.view') }}" class="nav-link {{ ($route == 'employee.assign.leave.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Assign Leave</p>
+                </a>
+              </li>
             </ul>
           </li>
 

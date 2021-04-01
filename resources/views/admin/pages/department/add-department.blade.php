@@ -98,7 +98,7 @@ $(function () {
       department_code:{
         required: "Please enter department code",
         number: "Invalid department code",
-      }
+      },
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

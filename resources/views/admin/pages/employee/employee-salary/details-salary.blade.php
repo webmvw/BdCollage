@@ -2,7 +2,7 @@
 @extends('admin.partials.master')
 
 @section('title')
-  <title>Encrement Salary Details | BdCollage</title>
+  <title>Increment Salary Details | BdCollage</title>
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
               <li class="breadcrumb-item"><a href="{{ route('employee.salary.view') }}">Employee Salary</a></li>
-              <li class="breadcrumb-item active">Encrement Salary Details</li>
+              <li class="breadcrumb-item active">Increment Salary Details</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,7 +36,7 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Encrement Salary Details</h3>
+                <h3 class="card-title">Increment Salary Details</h3>
                 <a href="{{ route('employee.salary.view') }}" class="btn btn-success btn-sm"><i class="fa fa-list"></i> Employee Salary List</a>
               </div>
 
