@@ -136,6 +136,16 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/salary/update/{id}', [App\Http\Controllers\Admin\Employee\EmployeeSalaryController::class, 'update'])->name('employee.salary.update');
 		Route::get('/salary/details/{id}', [App\Http\Controllers\Admin\Employee\EmployeeSalaryController::class, 'details'])->name('employee.salary.details');
 
+
+		// for employee leave
+		Route::get('/employeeLeave/view', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'view'])->name('employeeLeave.view');
+		Route::get('/employeeLeave/add', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'add'])->name('employeeLeave.add');
+		Route::post('/employeeLeave/store', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'store'])->name('employeeLeave.store');
+		Route::get('/employeeLeave/edit/{id}', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'edit'])->name('employeeLeave.edit');
+		Route::post('/employeeLeave/update/{id}', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'update'])->name('employeeLeave.update');
+		Route::get('/employeeLeave/delete/{id}', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'delete'])->name('employeeLeave.delete');
+
+
 	});	
 
 });
