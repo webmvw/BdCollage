@@ -145,6 +145,13 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/employeeLeave/update/{id}', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'update'])->name('employeeLeave.update');
 		Route::get('/employeeLeave/delete/{id}', [App\Http\Controllers\Admin\Employee\EmployeeLeaveController::class, 'delete'])->name('employeeLeave.delete');
 
+		// for employee attendance
+		Route::get('/attendance/view', [App\Http\Controllers\Admin\Employee\EmployeeAttendanceController::class, 'view'])->name('employeeAttendance.view');
+		Route::get('/attendance/add', [App\Http\Controllers\Admin\Employee\EmployeeAttendanceController::class, 'add'])->name('employeeAttendance.add');
+		Route::post('/attendance/store', [App\Http\Controllers\Admin\Employee\EmployeeAttendanceController::class, 'store'])->name('employeeAttendance.store');
+		Route::get('/attendance/edit/{date}', [App\Http\Controllers\Admin\Employee\EmployeeAttendanceController::class, 'edit'])->name('employeeAttendance.edit');
+		Route::get('/attendance/details/{date}', [App\Http\Controllers\Admin\Employee\EmployeeAttendanceController::class, 'details'])->name('employeeAttendance.details');
+
 
 	});	
 

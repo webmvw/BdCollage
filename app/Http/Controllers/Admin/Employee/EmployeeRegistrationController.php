@@ -26,6 +26,10 @@ class EmployeeRegistrationController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'email' => 'required|unique:users',
+        ]);
+
     	DB::transaction(function() use($request){
             // start generate student id number
             $teacher = User::where('role_id', '2')->orderBy('id','desc')->first();

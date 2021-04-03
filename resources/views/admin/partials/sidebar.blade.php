@@ -165,6 +165,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ route('employeeAttendance.view') }}" class="nav-link {{ ($route == 'employeeAttendance.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Attendance</p>
+                </a>
+              </li>
+
             </ul>
           </li>
 
