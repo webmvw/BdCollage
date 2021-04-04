@@ -131,6 +131,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ route('roll.generate.view') }}" class="nav-link {{ ($route == 'roll.generate.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Roll Generate</p>
+                </a>
+              </li>
+
             </ul>
           </li>
 

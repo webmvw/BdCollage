@@ -120,6 +120,12 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/registration/delete/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'delete'])->name('student.registration.delete');
 		Route::get('/search/studentList', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'search'])->name('student.registration.search');
 		Route::get('/student/details/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'details'])->name('student.registration.details');
+
+		// for student roll generate
+		Route::get('/roll/generate/view', [App\Http\Controllers\Admin\Student\StudentRollController::class, 'view'])->name('roll.generate.view');
+		Route::get('/get/register/student', [App\Http\Controllers\Admin\Student\StudentRollController::class, 'getStudents'])->name('get.register.students');
+		Route::post('get/student/roll/store', [App\Http\Controllers\Admin\Student\StudentRollController::class, 'store'])->name('student.roll.store');
+
 	});
 
 	// employee management

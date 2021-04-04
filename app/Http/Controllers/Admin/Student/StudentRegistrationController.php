@@ -17,14 +17,14 @@ class StudentRegistrationController extends Controller
 {
     public function view(){
         $data['departments'] = Department::all();
-        $data['sessions'] = Session::all();
+        $data['sessions'] = Session::orderBy('id', 'desc')->get();
     	$data['allStudent'] = AssignStudent::orderBy('id', 'desc')->get();
     	return view('admin.pages.student.student-reg.view-student', $data);
     }
 
     public function search(Request $request){
         $data['departments'] = Department::all();
-        $data['sessions'] = Session::all();
+        $data['sessions'] = Session::orderBy('id', 'desc')->get();
         $data['department_id'] = $request->department;
         $data['session_id'] = $request->session;
         $data['allStudent'] = AssignStudent::where('department_id', $request->department)->where('session_id', $request->session)->get();
