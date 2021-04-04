@@ -119,6 +119,7 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/registration/update/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'update'])->name('student.registration.update');
 		Route::get('/registration/delete/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'delete'])->name('student.registration.delete');
 		Route::get('/search/studentList', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'search'])->name('student.registration.search');
+		Route::get('/student/details/{id}', [App\Http\Controllers\Admin\Student\StudentRegistrationController::class, 'details'])->name('student.registration.details');
 	});
 
 	// employee management

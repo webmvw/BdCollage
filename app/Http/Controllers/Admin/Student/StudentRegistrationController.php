@@ -169,4 +169,10 @@ class StudentRegistrationController extends Controller
     }
 
 
+    public function details($id){
+        $data['assignStudent'] = AssignStudent::find($id);
+        return view('admin.pages.student.student-reg.details-student', $data);
+    }
+
+
 }

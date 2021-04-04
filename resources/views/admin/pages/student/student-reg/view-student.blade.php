@@ -81,8 +81,6 @@
                       <th>Roll</th>
                       <th>Department</th>
                       <th>Session</th>
-                      <th>Phone</th>
-                      <th>Address</th>
                       @if(Auth::user()->role_id == 1)
                       <th>code</th>
                       @endif
@@ -105,13 +103,12 @@
                           <td>{{ $value->roll }}</td>
                           <td>{{ $value->department->name }}</td>
                           <td>{{ $value->session->name }}</td>
-                          <td>{{ $value->student->mobile }}</td>
-                          <td>{{ $value->student->address }}</td>
                           @if(Auth::user()->role_id == 1)
                           <td>{{ $value->student->code }}</td>
                           @endif
                           <td>
                             <a href="{{ route('student.registration.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('student.registration.details', $value->id) }}" title="Details" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                           </td>
                         </tr>
                     @endforeach
@@ -126,8 +123,6 @@
                       <th>Roll</th>
                       <th>Department</th>
                       <th>Session</th>
-                      <th>Phone</th>
-                      <th>Address</th>
                       @if(Auth::user()->role_id == 1)
                       <th>code</th>
                       @endif
@@ -146,8 +141,6 @@
                       <th>Roll</th>
                       <th>Department</th>
                       <th>Session</th>
-                      <th>Phone</th>
-                      <th>Address</th>
                       @if(Auth::user()->role_id == 1)
                       <th>code</th>
                       @endif
@@ -170,13 +163,12 @@
                           <td>{{ $value->roll }}</td>
                           <td>{{ $value->department->name }}</td>
                           <td>{{ $value->session->name }}</td>
-                          <td>{{ $value->student->mobile }}</td>
-                          <td>{{ $value->student->address }}</td>
                           @if(Auth::user()->role_id == 1)
                           <td>{{ $value->student->code }}</td>
                           @endif
                           <td>
                             <a href="{{ route('student.registration.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('student.registration.details', $value->id) }}" title="Details" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                           </td>
                         </tr>
                     @endforeach
@@ -191,8 +183,6 @@
                       <th>Roll</th>
                       <th>Department</th>
                       <th>Session</th>
-                      <th>Phone</th>
-                      <th>Address</th>
                       @if(Auth::user()->role_id == 1)
                       <th>code</th>
                       @endif
