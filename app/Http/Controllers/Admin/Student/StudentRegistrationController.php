@@ -34,7 +34,7 @@ class StudentRegistrationController extends Controller
 
     public function add(){
     	$data['departments'] = Department::all();
-    	$data['sessions'] = Session::all();
+    	$data['sessions'] = Session::orderBy('id', 'desc')->get();
     	return view('admin.pages.student.student-reg.add-student', $data);
     }
 

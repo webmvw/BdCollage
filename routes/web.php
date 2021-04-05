@@ -165,6 +165,10 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/attendance/edit/{date}', [App\Http\Controllers\Admin\Employee\EmployeeAttendanceController::class, 'edit'])->name('employeeAttendance.edit');
 		Route::get('/attendance/details/{date}', [App\Http\Controllers\Admin\Employee\EmployeeAttendanceController::class, 'details'])->name('employeeAttendance.details');
 
+		// for employee monthly selary
+		Route::get('/monthly/salary/view', [App\Http\Controllers\Admin\Employee\MonthlySalaryController::class, 'view'])->name('employee.monthly.salary.view');
+		Route::get('/monthly/salary/details', [App\Http\Controllers\Admin\Employee\MonthlySalaryController::class, 'getSalaryDetails'])->name('employee.monthly.salary.details');
+
 
 	});	
 

@@ -186,6 +186,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ route('employee.monthly.salary.view') }}" class="nav-link {{ ($route == 'employee.monthly.salary.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthly Salary</p>
+                </a>
+              </li>
+
             </ul>
           </li>
 
