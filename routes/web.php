@@ -126,6 +126,11 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/get/register/student', [App\Http\Controllers\Admin\Student\StudentRollController::class, 'getStudents'])->name('get.register.students');
 		Route::post('get/student/roll/store', [App\Http\Controllers\Admin\Student\StudentRollController::class, 'store'])->name('student.roll.store');
 
+		// for student fee details
+		Route::get('/fee/details/view', [App\Http\Controllers\Admin\Student\FeeDetailsController::class, 'view'])->name('fee.details.view');
+		Route::get('/get/fee/details', [App\Http\Controllers\Admin\Student\FeeDetailsController::class, 'getFeeDetails'])->name('get.fee.details');
+
+
 	});
 
 	// employee management

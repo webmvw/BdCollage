@@ -138,6 +138,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ route('fee.details.view') }}" class="nav-link {{ ($route == 'fee.details.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fee Details</p>
+                </a>
+              </li>
+
             </ul>
           </li>
 
