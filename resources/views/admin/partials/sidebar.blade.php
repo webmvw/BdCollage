@@ -148,6 +148,25 @@
             </ul>
           </li>
 
+          <li class="nav-item {{ ($prefix == '/marks') ? 'menu-is-opening menu-open': '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage Marks
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('student.marks.entry.view') }}" class="nav-link {{ ($route == 'student.marks.entry.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Marks Entry</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
 
           <li class="nav-item {{ ($prefix == '/employee') ? 'menu-is-opening menu-open': '' }}">
             <a href="#" class="nav-link">

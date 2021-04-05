@@ -168,8 +168,15 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		// for employee monthly selary
 		Route::get('/monthly/salary/view', [App\Http\Controllers\Admin\Employee\MonthlySalaryController::class, 'view'])->name('employee.monthly.salary.view');
 		Route::get('/monthly/salary/details', [App\Http\Controllers\Admin\Employee\MonthlySalaryController::class, 'getSalaryDetails'])->name('employee.monthly.salary.details');
+	});	
 
-
+	// marks management
+	Route::group(['prefix' => 'marks'], function(){
+		//marks entry
+		Route::get('/student/marks/entry/view', [App\Http\Controllers\Admin\Marks\MarksController::class, 'view'])->name('student.marks.entry.view');
+		Route::post('/student/marks/entry/store', [App\Http\Controllers\Admin\Marks\MarksController::class, 'store'])->name('student.marks.entry.store');
+		Route::get('/get/all/subject', [App\Http\Controllers\Admin\Marks\MarksController::class, 'gelAllSubject'])->name('get.all.subject');
+		Route::get('get/student/formarkentry', [App\Http\Controllers\Admin\Marks\MarksController::class, 'getStudent'])->name('get.students.formarksentry');
 	});	
 
 });
