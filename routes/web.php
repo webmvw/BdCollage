@@ -172,7 +172,7 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 
 	// marks management
 	Route::group(['prefix' => 'marks'], function(){
-		//marks entry
+		// for marks entry
 		Route::get('/student/marks/entry/view', [App\Http\Controllers\Admin\Marks\MarksController::class, 'view'])->name('student.marks.entry.view');
 		Route::post('/student/marks/entry/store', [App\Http\Controllers\Admin\Marks\MarksController::class, 'store'])->name('student.marks.entry.store');
 		Route::get('/get/all/subject', [App\Http\Controllers\Admin\Marks\MarksController::class, 'gelAllSubject'])->name('get.all.subject');
@@ -180,6 +180,15 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/edit/view', [App\Http\Controllers\Admin\Marks\MarksController::class, 'edit'])->name('student.marks.entry.edit');
 		Route::get('/get/student/editmarks', [App\Http\Controllers\Admin\Marks\MarksController::class, 'getEditMarks'])->name('get.students.editmarks');
 		Route::post('/get/student/marks/update', [App\Http\Controllers\Admin\Marks\MarksController::class, 'update'])->name('student.marks.entry.update');
+
+		// for grade point
+		Route::get('/gradePoint/view', [App\Http\Controllers\Admin\Marks\GradePointController::class, 'view'])->name('gradePoint.view');
+		Route::get('/gradePoint/add', [App\Http\Controllers\Admin\Marks\GradePointController::class, 'add'])->name('gradePoint.add');
+		Route::post('/gradePoint/store', [App\Http\Controllers\Admin\Marks\GradePointController::class, 'store'])->name('gradePoint.store');
+		Route::get('/gradePoint/edit/{id}', [App\Http\Controllers\Admin\Marks\GradePointController::class, 'edit'])->name('gradePoint.edit');
+		Route::post('/gradePoint/update/{id}', [App\Http\Controllers\Admin\Marks\GradePointController::class, 'update'])->name('gradePoint.update');
+		Route::get('/gradePoint/delete/{id}', [App\Http\Controllers\Admin\Marks\GradePointController::class, 'delete'])->name('gradePoint.delete');
+
 	});	
 
 });
