@@ -53,4 +53,37 @@ class MarksController extends Controller
     	}
     	return redirect()->back()->with('success', 'Marks Added Success!!');
     }
+
+    public function edit(){
+    	$data['departments'] = Department::all();
+    	$data['sessions'] = Session::orderBy('id', 'desc')->get();
+    	$data['exams'] = Exam::all();
+    	return view('admin.pages.marks.marks-entry.edit-marksentry', $data);
+    }
+
+    public function getEditMarks(Request $request){
+    	$allStudentMarks = StudentMarks::with('student', 'department', 'session')->where('department_id', $request->department)->where('session_id', $request->session)->where('subject_id', $request->subject)->where('exam_id', $request->exam)->get();
+    	return response()->json($allStudentMarks, 200);
+    }
+
+    public function update(Request $request){
+    	if($request->student_id != Null){
+    		StudentMarks::where('department_id', $request->department)->where('session_id', $request->session)->where('subject_id', $request->subject)->where('exam_id', $request->exam)->delete();
+    		$allStudent = count($request->student_id);
+    		for ($i=0; $i < $allStudent ; $i++) { 
+    			$studentMarks = new StudentMarks; 
+	    		$studentMarks->student_id = $request->student_id[$i];
+	    		$studentMarks->department_id = $request->department;
+	    		$studentMarks->session_id = $request->session;
+	    		$studentMarks->subject_id = $request->subject;
+	    		$studentMarks->exam_id = $request->exam;
+	    		$studentMarks->marks = $request->mark[$i];
+	    		$studentMarks->save();
+	    	}
+    	}else{
+    		return redirect()->back()->with('error', 'Sorry! There are no Student.');
+    	}
+    	return redirect()->back()->with('success', 'Marks Updated Success!!');
+    }
+
 }

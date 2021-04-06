@@ -163,6 +163,12 @@
                   <p>Marks Entry</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('student.marks.entry.edit') }}" class="nav-link {{ ($route == 'student.marks.entry.edit') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Marks Edit</p>
+                </a>
+              </li>
 
             </ul>
           </li>

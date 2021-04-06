@@ -177,6 +177,9 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/student/marks/entry/store', [App\Http\Controllers\Admin\Marks\MarksController::class, 'store'])->name('student.marks.entry.store');
 		Route::get('/get/all/subject', [App\Http\Controllers\Admin\Marks\MarksController::class, 'gelAllSubject'])->name('get.all.subject');
 		Route::get('get/student/formarkentry', [App\Http\Controllers\Admin\Marks\MarksController::class, 'getStudent'])->name('get.students.formarksentry');
+		Route::get('/edit/view', [App\Http\Controllers\Admin\Marks\MarksController::class, 'edit'])->name('student.marks.entry.edit');
+		Route::get('/get/student/editmarks', [App\Http\Controllers\Admin\Marks\MarksController::class, 'getEditMarks'])->name('get.students.editmarks');
+		Route::post('/get/student/marks/update', [App\Http\Controllers\Admin\Marks\MarksController::class, 'update'])->name('student.marks.entry.update');
 	});	
 
 });
