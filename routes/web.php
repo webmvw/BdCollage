@@ -198,6 +198,13 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/student/fee/add', [App\Http\Controllers\Admin\Account\StudentFeeController::class, 'add'])->name('account.student.fee.add');
 		Route::post('/student/fee/store', [App\Http\Controllers\Admin\Account\StudentFeeController::class, 'store'])->name('account.student.fee.store');
 		Route::get('/fee/get/student', [App\Http\Controllers\Admin\Account\StudentFeeController::class, 'getStudent'])->name('account.fee.get.student');
+
+		// for employee salary
+		Route::get('/employee/salary/view', [App\Http\Controllers\Admin\Account\EmployeeSalaryController::class, 'view'])->name('account.employee.salary.view');
+		Route::get('/employee/salary/add', [App\Http\Controllers\Admin\Account\EmployeeSalaryController::class, 'add'])->name('account.employee.salary.add');
+		Route::post('/employee/salary/store', [App\Http\Controllers\Admin\Account\EmployeeSalaryController::class, 'store'])->name('account.employee.salary.store');
+		Route::get('/salary/get/employee', [App\Http\Controllers\Admin\Account\EmployeeSalaryController::class, 'getEmployeeSalary'])->name('account.salary.get.employee');
+
 	});
 
 });
