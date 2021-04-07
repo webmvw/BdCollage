@@ -191,6 +191,15 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 
 	});	
 
+	// accounts management
+	Route::group(['prefix' => 'account'], function(){
+		// for student fee
+		Route::get('/student/fee/view', [App\Http\Controllers\Admin\Account\StudentFeeController::class, 'view'])->name('account.student.fee.view');
+		Route::get('/student/fee/add', [App\Http\Controllers\Admin\Account\StudentFeeController::class, 'add'])->name('account.student.fee.add');
+		Route::post('/student/fee/store', [App\Http\Controllers\Admin\Account\StudentFeeController::class, 'store'])->name('account.student.fee.store');
+		Route::get('/fee/get/student', [App\Http\Controllers\Admin\Account\StudentFeeController::class, 'getStudent'])->name('account.fee.get.student');
+	});
+
 });
 
 

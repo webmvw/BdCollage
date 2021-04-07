@@ -43,7 +43,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Manage Setups
+                Setups Management
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -119,7 +119,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Manage Students
+                Students Management
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -152,7 +152,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Manage Marks
+                Marks Management
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -183,7 +183,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Manage Employees
+                Employee Management
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -226,6 +226,24 @@
             </ul>
           </li>
 
+          <li class="nav-item {{ ($prefix == '/account') ? 'menu-is-opening menu-open': '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Accounts Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('account.student.fee.view') }}" class="nav-link {{ ($route == 'account.student.fee.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Students Fee</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
 
 
         </ul>
