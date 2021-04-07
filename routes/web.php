@@ -205,6 +205,13 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/employee/salary/store', [App\Http\Controllers\Admin\Account\EmployeeSalaryController::class, 'store'])->name('account.employee.salary.store');
 		Route::get('/salary/get/employee', [App\Http\Controllers\Admin\Account\EmployeeSalaryController::class, 'getEmployeeSalary'])->name('account.salary.get.employee');
 
+		// for others cost
+		Route::get('/others/cost/view', [App\Http\Controllers\Admin\Account\OtherCostController::class, 'view'])->name('account.other.cost.view');
+		Route::get('/others/cost/add', [App\Http\Controllers\Admin\Account\OtherCostController::class, 'add'])->name('account.other.cost.add');
+		Route::post('/others/cost/store', [App\Http\Controllers\Admin\Account\OtherCostController::class, 'store'])->name('account.other.cost.store');
+		Route::get('/others/cost/edit/{id}', [App\Http\Controllers\Admin\Account\OtherCostController::class, 'edit'])->name('account.other.cost.edit');
+		Route::post('/others/cost/update/{id}', [App\Http\Controllers\Admin\Account\OtherCostController::class, 'update'])->name('account.other.cost.update');
+
 	});
 
 });

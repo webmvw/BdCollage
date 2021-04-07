@@ -247,7 +247,12 @@
                   <p>Employee Salary</p>
                 </a>
               </li>
-
+              <li class="nav-item">
+                <a href="{{ route('account.other.cost.view') }}" class="nav-link {{ ($route == 'account.other.cost.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Others Cost</p>
+                </a>
+              </li>
             </ul>
           </li>
 
