@@ -256,6 +256,23 @@
             </ul>
           </li>
 
+          <li class="nav-item {{ ($prefix == '/reports') ? 'menu-is-opening menu-open': '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Reports Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('monthly.profit.view') }}" class="nav-link {{ ($route == 'monthly.profit.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthly Profit</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 
         </ul>
       </nav>
