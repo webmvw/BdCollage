@@ -18,6 +18,7 @@ class CreateStudentMarksTable extends Migration
             $table->integer('student_id')->comment('user_id=student_id');
             $table->integer('department_id')->nullable();
             $table->integer('session_id')->nullable();
+            $table->integer('semester_id')->nullable();
             $table->integer('subject_id')->nullable();
             $table->integer('exam_id')->nullable();
             $table->double('marks');

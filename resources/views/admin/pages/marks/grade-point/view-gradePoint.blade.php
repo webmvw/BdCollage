@@ -47,8 +47,7 @@
                       <th>Point</th>
                       <th>Start Mark</th>
                       <th>End Mark</th>
-                      <th>Start Point</th>
-                      <th>End Point</th>
+                      <th>Point Range</th>
                       <th>Remarks</th>
                       <th width="10%">Action</th>
                     </tr>
@@ -58,11 +57,10 @@
                         <tr>
                           <td>{{ $key+1 }}</td>
                           <td>{{ $value->grade_name }}</td>
-                          <td>{{ $value->grade_point }}</td>
+                          <td>{{ number_format((float)$value->grade_point,2) }}</td>
                           <td>{{ $value->start_mark }}</td>
                           <td>{{ $value->end_mark }}</td>
-                          <td>{{ $value->start_point }}</td>
-                          <td>{{ $value->end_point }}</td>
+                          <td>{{ number_format((float)$value->start_point,2) }} - {{ number_format((float)$value->end_point,2) }}</td>
                           <td>{{ $value->remarks }}</td>
                           <td>
                             <a href="{{ route('gradePoint.edit', $value->id) }}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
@@ -79,8 +77,7 @@
                       <th>Point</th>
                       <th>Start Mark</th>
                       <th>End Mark</th>
-                      <th>Start Point</th>
-                      <th>End Point</th>
+                      <th>Point Range</th>
                       <th>Remarks</th>
                       <th width="10%">Action</th>
                     </tr>

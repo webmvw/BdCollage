@@ -54,6 +54,17 @@
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
+                        <label for="semester">Semester <span style="color:red">*</span></label>
+                        <select class="form-control select2" name="semester" id="semester">
+                          <option value="">Select Semester</option>
+                          @foreach($semesters as $semester)
+                          <option value="{{ $semester->id }}">{{ $semester->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
                         <label for="department">Department <span style="color:red">*</span></label>
                         <select class="form-control select2" name="department" id="department">
                           <option value="">Select Department</option>
@@ -141,10 +152,15 @@
   $(document).on('click', '#search', function(){
     var department = $('#department').val();
     var session = $('#session').val();
+    var semester = $('#semester').val();
     var subject = $('#subject').val();
     var exam = $('#exam').val();
     if(session == ''){
       toastr.error("Please select Session.");
+      return false;
+    }
+    if(semester == ''){
+      toastr.error("Please select Semester");
       return false;
     }
     if(department == ''){
