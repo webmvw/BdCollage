@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Stock Report</title>
+	<title>Monthly Profit Report</title>
 
 </head>
 <body>

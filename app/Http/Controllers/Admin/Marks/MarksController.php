@@ -39,7 +39,7 @@ class MarksController extends Controller
     	$subject_id = $request->subject;
         $semester_id = $request->semester;
     	$exam_id = $request->exam;
-        $getStudentMarks = StudentMarks::where('department_id', $department_id)->where('session_id', $session_id)->where('semester_id', $semester_id)->where('subject_id', $subject_id)->get();
+        $getStudentMarks = StudentMarks::where('department_id', $department_id)->where('session_id', $session_id)->where('semester_id', $semester_id)->where('subject_id', $subject_id)->where('exam_id', $exam_id)->get();
         if($getStudentMarks != Null){
             return redirect()->back()->with('error', 'Sorry! This subject marks already exists!');
         }else{

@@ -271,6 +271,12 @@
                   <p>Monthly Profit</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('report.marksheet.view') }}" class="nav-link {{ ($route == 'report.marksheet.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Marksheet</p>
+                </a>
+              </li>
             </ul>
           </li>
 

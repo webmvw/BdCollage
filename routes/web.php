@@ -213,12 +213,16 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::post('/others/cost/update/{id}', [App\Http\Controllers\Admin\Account\OtherCostController::class, 'update'])->name('account.other.cost.update');
 	});
 
-	// accounts management
+	// reports management
 	Route::group(['prefix' => 'reports'], function(){
 		// for monthly/yearly profit
 		Route::get('/profit/monthly/view', [App\Http\Controllers\Admin\Report\ProfitController::class, 'view'])->name('monthly.profit.view');
 		Route::get('/get/monthly/profit', [App\Http\Controllers\Admin\Report\ProfitController::class, 'getProfit'])->name('monthly.profit.get');
 		Route::get('/get/monthly/profit/pdf', [App\Http\Controllers\Admin\Report\ProfitController::class, 'pdf'])->name('monthly.profit.get.pdf');
+
+		// for marksheet 
+		Route::get('/marksheet/view', [App\Http\Controllers\Admin\Report\MarksheetController::class, 'view'])->name('report.marksheet.view');
+		Route::post('/marksheet/get/report', [App\Http\Controllers\Admin\Report\MarksheetController::class, 'getReport'])->name('report.marksheet.get');
 
 	});
 		

@@ -25,7 +25,7 @@ class CreateSubjectsTable extends Migration
             $table->double('pc')->nullable();
             $table->double('pf')->nullable();
             $table->double('cradit');
-            $table->string('pass_mark')->default('40%');
+            $table->string('pass_mark')->default('40');
             $table->timestamps();
         });
     }
