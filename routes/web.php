@@ -224,6 +224,10 @@ Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('/marksheet/view', [App\Http\Controllers\Admin\Report\MarksheetController::class, 'view'])->name('report.marksheet.view');
 		Route::post('/marksheet/get/report', [App\Http\Controllers\Admin\Report\MarksheetController::class, 'getReport'])->name('report.marksheet.get');
 
+		// for employee attendance
+		Route::get('/attendance/view', [App\Http\Controllers\Admin\Report\EmployeeAttendanceController::class, 'view'])->name('report.employee.attendance.view');
+		Route::post('/attendance/get/report', [App\Http\Controllers\Admin\Report\EmployeeAttendanceController::class, 'getReport'])->name('report.employee.attendance.get');
+
 	});
 		
 });
