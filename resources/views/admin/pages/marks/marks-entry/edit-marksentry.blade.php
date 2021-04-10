@@ -74,6 +74,17 @@
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
+                        <label for="semester">Semester <span style="color:red">*</span></label>
+                        <select class="form-control select2" name="semester" id="semester">
+                          <option value="">Select Semester</option>
+                          @foreach($semesters as $semester)
+                          <option value="{{ $semester->id }}">{{ $semester->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
                         <label for="exam">Exam <span style="color:red">*</span></label>
                         <select class="form-control select2" name="exam" id="exam">
                           <option value="">Select Exam</option>
@@ -143,6 +154,7 @@
     var department = $('#department').val();
     var session = $('#session').val();
     var subject = $('#subject').val();
+    var semester = $('#semester').val();
     var exam = $('#exam').val();
     if(session == ''){
       toastr.error("Please select Session.");
@@ -156,6 +168,10 @@
       toastr.error("Please select Subject.");
       return false;
     }
+    if(semester == ''){
+      toastr.error("Please select semester");
+      return false;
+    }
     if(exam == ''){
       toastr.error("Please select Exam.");
       return false;
@@ -164,7 +180,7 @@
     $.ajax({
       url: "{{ route('get.students.editmarks') }}",
       type: "GET",
-      data:{department:department, session:session, subject:subject, exam:exam},
+      data:{department:department, session:session, subject:subject, semester:semester, exam:exam},
       success:function(data){
         $('#marks-entry').removeClass('d-none');
         $('#mark-entry-btn').removeClass('d-none');

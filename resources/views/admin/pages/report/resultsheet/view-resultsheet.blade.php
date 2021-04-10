@@ -1,7 +1,7 @@
 @extends('admin.partials.master')
 
 @section('title')
-  <title>Student Marksheet | BdCollage</title>
+  <title>Student Resultsheet | BdCollage</title>
 @endsection
 
 @section('content')
@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Student Marksheet</h1>
+            <h1 class="m-0 text-dark">Student Resultsheet</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-              <li class="breadcrumb-item active">Student Marksheet</li>
+              <li class="breadcrumb-item active">Student Resultsheet</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,10 +33,10 @@
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
               <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Student Marksheet</h3>
+                <h3 class="card-title">Student Resultsheet</h3>
               </div>
               <!-- /.card-header -->
-              <form action="{{ route('report.marksheet.get') }}" method="POST" id="quickForm" target="_blank">
+              <form action="{{ route('student.resultsheet.get') }}" method="POST" id="quickForm" target="_blank">
                 @csrf
               <div class="card-body">
                 <div class="row">
@@ -85,12 +85,6 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="student_id_no">Student ID No <span style="color:red">*</span></label>
-                      <input type="text" name="student_id_no" id="student_id_no" placeholder="Student id no" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
                     <button class="btn btn-primary" type="submit" style="margin-top: 32px">Submit</button>
                   </div>
                 </div>
@@ -122,9 +116,6 @@ $(function () {
         required: true,
       },
       exam:{
-        required: true,
-      },
-      student_id_no:{
         required: true,
       },
     },

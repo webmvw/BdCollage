@@ -283,6 +283,12 @@
                   <p>Employee Attendance</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('student.resultsheet.view') }}" class="nav-link {{ ($route == 'student.resultsheet.view') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Resultsheet</p>
+                </a>
+              </li>
             </ul>
           </li>
 

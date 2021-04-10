@@ -36,7 +36,7 @@
                 <h3 class="card-title">Employee Attendance Report</h3>
               </div>
               <!-- /.card-header -->
-              <form action="{{ route('report.employee.attendance.get') }}" method="POST" id="quickForm">
+              <form action="{{ route('report.employee.attendance.get') }}" method="POST" id="quickForm" target="_blank">
                 @csrf
               <div class="card-body">
                 <div class="row">
